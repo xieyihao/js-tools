@@ -1,5 +1,5 @@
 /**
- * author：xieyihao
+ * author：xieyiHao
  * time:2015-11-19
  * introduction：收集实用的脚本
  * version：1.0
@@ -114,11 +114,11 @@ function styleElementSiblings(tag,theClass){
 }
 
 /*----------------------------扩充函数模块------------------------------*/
-var hao;
+var Hao;
 //将对象数组转换成uri的参数 name=value&name2=value2
-hao.func = {}; //功能函数命名空间
+Hao.func = {}; //功能函数命名空间
 
-hao.func.arrayTOUri = function(array){
+Hao.func.arrayTOUri = function(array){
     if(array.length < 1) return "";
 
     var item,
@@ -129,7 +129,7 @@ hao.func.arrayTOUri = function(array){
     return result.substring(0,result.length-1)
 };
 
-hao.func.getQueryStringArgs = function () {
+Hao.func.getQueryStringArgs = function () {
     var searchString = location.search;
     var qs = (searchString.length > 0 ? searchString.substring(1) : ""),
         args = {},
@@ -155,52 +155,53 @@ hao.func.getQueryStringArgs = function () {
     return args;
 };
 
-hao.func.isArray = function(obj){
+Hao.func.isArray = function(obj){
     return Object.prototype.toString.call(obj)  === "[object Array]";
 };
 
 //[TODO] 验证数字类型 2016-6-17 15:45:27
-hao.func.isNumber = function(obj){
+Hao.func.isNumber = function(obj){
 
 };
 //[TODO] 验证对象类型 2016-6-17 15:45:27
-hao.func.isObject = function(obj){
+Hao.func.isObject = function(obj){
 
 };
-/*----------------------------------------------------正则验证---------------------------------------------------*/
+/*-----正则验证-----*/
+Hao.regex = {}; //功能函数命名空间
 //验证名字
-    function checkName(name){
-        var myreg = /^([\u4e00-\u9fa5]+){2,15}|([a-zA-Z]+)$/;
-        var flag = !!myreg.test(name);
-        if(flag == false){
-            return false;
-        }
-        return true;
-    }
-    //验证年龄
-    function checkAge (age) {
-        var myreg = /120|((1[0-1]|\d)?\d)/;
-        var flag = !!myreg.test(age);
-        if(flag == false){
-            return false;
-        }
-        return true;
-    }
-        //验证身份证
-    function isIdentity(personID){
-        var myreg = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/;
-        var flag = !!myreg.test(personID) ;
-        if(flag == false){
-            return false;
-        }
-        return true;
-    }
-    //验证手机号
-    function isPhoneNumber(phone) {
-        var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(15[0-9]{1}))\d{8})$/;
-        //var myreg = /^(?:13d|15d|18d)d{8}$/;
-        if (myreg.test(phone)){
-            return true;
-        }
+Hao.regex.checkName = function (name){
+    var myreg = /^([\u4e00-\u9fa5]+){2,15}|([a-zA-Z]+)$/;
+    var flag = !!myreg.test(name);
+    if(flag == false){
         return false;
     }
+    return true;
+};
+//验证年龄
+Hao.regex.checkAge = function  (age) {
+    var myreg = /120|((1[0-1]|\d)?\d)/;
+    var flag = !!myreg.test(age);
+    if(flag == false){
+        return false;
+    }
+    return true;
+};
+    //验证身份证
+Hao.regex.isIdentity = function (personID){
+    var myreg = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/;
+    var flag = !!myreg.test(personID) ;
+    if(flag == false){
+        return false;
+    }
+    return true;
+};
+//验证手机号
+Hao.regex.isPhoneNumber = function (phone) {
+    var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(15[0-9]{1}))\d{8})$/;
+    //var myreg = /^(?:13d|15d|18d)d{8}$/;
+    if (myreg.test(phone)){
+        return true;
+    }
+    return false;
+};
