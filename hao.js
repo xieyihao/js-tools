@@ -159,6 +159,14 @@ hao.func.isArray = function(obj){
     return Object.prototype.toString.call(obj)  === "[object Array]";
 };
 
+//[TODO] 验证数字类型 2016-6-17 15:45:27
+hao.func.isNumber = function(obj){
+
+};
+//[TODO] 验证对象类型 2016-6-17 15:45:27
+hao.func.isObject = function(obj){
+
+};
 /*----------------------------------------------------正则验证---------------------------------------------------*/
 //验证名字
     function checkName(name){
